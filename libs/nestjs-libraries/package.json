@@ -1,0 +1,26 @@
+{
+  "name": "@r4/nestjs-libraries",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "nest build",
+    "-dev": "tsc --watch",
+    "---dev": "nest start --watch",
+    "-build": "tsc -b",
+    "dev": "tsc -b --watch"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^11.0.1",
+    "@nestjs/core": "^11.0.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.1"
+}

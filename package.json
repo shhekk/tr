@@ -1,0 +1,27 @@
+{
+  "name": "r4",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier \"{apps,libs}/**/*.{ts,tsx,js,json}\" --ignore-path .gitignore",
+    "format:check": "pnpm format --check",
+    "format:write": "pnpm format --write",
+    "tsc": "pnpm --parallel -r tsc",
+    "lint": "pnpm --parallel -r lint",
+    "build": "pnpm --parallel -r build",
+    "dev": "pnpm --parallel -r dev",
+    "validate": "pnpm format:write && pnpm tsc && pnpm lint",
+    "dev:api": "pnpm run --filter api dev",
+    "dev:web": "pnpm run --filter web dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.1",
+  "devDependencies": {
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3"
+  }
+}
