@@ -1,11 +1,13 @@
 import Image from 'next/image';
-import { add } from '@r4/shared';
+import { add } from '@tr/shared';
 // import {} from '~/app/layout';
 
 export const asdf = 'asdfasfd';
 
 export default async function Home() {
-  const res = await fetch('http://localhost:4001/book/029348');
+  const res = await fetch('http://localhost:4001/book/029348', {
+    cache: 'no-store', // “Do NOT prerender this at build time.”
+  });
   const body = await res.json();
   // let message = 'message';
   let message = JSON.stringify(body ?? 'not-found');
@@ -23,26 +25,26 @@ export default async function Home() {
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file. {add(68, 69)} {message}{' '}
-            {process.env.global}a
+            To get started, edit the page.tsx file. {add(68, 69)} {message}
+            {process.env.global}aaa
           </h1>
           <h1>{process.env.hellow}-</h1>
           <h1 className="text-white">a{process.env.global}</h1>
           <p className="max-w-md text-lg leading-8 nextext-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{' '}
+            Looking for a starting point or more instructions? Head over to
             <a
               href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
               className="font-medium text-zinc-950 dark:text-zinc-50"
             >
               Templates
-            </a>{' '}
-            or the{' '}
+            </a>
+            or the
             <a
               href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
               className="font-medium text-zinc-950 dark:text-zinc-50"
             >
               Learning
-            </a>{' '}
+            </a>
             center.
           </p>
         </div>

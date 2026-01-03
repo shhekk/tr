@@ -1,5 +1,5 @@
 {
-  "name": "@r4/web",
+  "name": "@tr/web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "tsc": "tsc --noEmit && echo \"reports type checking without emiting outputs\""
   },
   "dependencies": {
-    "@r4/shared": "workspace:*",
+    "@tr/shared": "workspace:*",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3"

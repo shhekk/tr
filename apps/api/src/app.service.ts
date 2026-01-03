@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { add } from '@r4/shared';
-import { next, adf as a } from '@r4/nestjs-libraries';
+import { add } from '@tr/shared';
+import { next, adf as a } from '@tr/nestjs-libraries';
 
 const adf = next + '____';
 

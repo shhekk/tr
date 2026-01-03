@@ -1,5 +1,5 @@
 {
-  "name": "@r4/nestjs-libraries",
+  "name": "@tr/nestjs-libraries",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -7,10 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "nest build",
+    "dev": "tsc -b --watch",
     "-dev": "tsc --watch",
     "---dev": "nest start --watch",
-    "-build": "tsc -b",
-    "dev": "tsc -b --watch"
+    "-build": "tsc -b"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.1",

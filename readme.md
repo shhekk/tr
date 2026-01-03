@@ -1,4 +1,4 @@
-# Self made monorepo from scratch
+# monorepo setup from scratch
 
 with the help of https://www.youtube.com/watch?v=iOWWmfMRqs0
 https://www.youtube.com/watch?v=S-jj_tifHl4

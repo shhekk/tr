@@ -13,8 +13,8 @@
     "build": "pnpm --parallel -r build",
     "dev": "pnpm --parallel -r dev",
     "validate": "pnpm format:write && pnpm tsc && pnpm lint",
-    "dev:api": "pnpm run --filter api dev",
-    "dev:web": "pnpm run --filter web dev"
+    "api:dev": "pnpm run --filter api dev",
+    "web:dev": "pnpm run --filter web dev"
   },
   "keywords": [],
   "author": "",
@@ -23,5 +23,8 @@
   "devDependencies": {
     "prettier": "^3.7.4",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
   }
 }

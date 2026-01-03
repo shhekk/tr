@@ -1,5 +1,5 @@
 {
-  "name": "@r4/api",
+  "name": "@tr/api",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -21,8 +21,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@r4/shared": "workspace:*",
-    "@r4/nestjs-libraries": "workspace:*",
+    "@tr/shared": "workspace:*",
+    "@tr/nestjs-libraries": "workspace:*",
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
     "@nestjs/platform-express": "^11.0.1",
