@@ -1,5 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { shared } from '@tr/shared';
+
+console.log(shared());
 
 (async function () {
   const app = await NestFactory.create(AppModule);

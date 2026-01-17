@@ -10,7 +10,7 @@ this is monorepo build compeletly using pnpm workspaces and ts project reference
 - using pnpm workspaces we have apps & libs.
 - each workspace have seperate package.json & tsconfig.json extended with base tsconfig.json at root
 - each apps is init manually by legacy init-cli. create-next-app & nest new
-- don't forget to extends the application/tsconfig.json with ../../tsconfig.json
+- don't forget to extends the application/tsconfig.json with ../../tsconfig.base.json
 - for libs add tsconfig & package.json -> main: dist/index.js types dist/index.d.ts
 - make composite true for libs -> enables ts-project reference → enables upstream building
 - which mean making changes in libs will build depended projects

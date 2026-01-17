@@ -1,0 +1,1 @@
+rm -rfv **/*.js **/*.d.ts **/*.js.map && rm -rf **/dist

@@ -1,16 +1,4 @@
 {
-  "compilerOptions": {
-    // "module": "commonjs",
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "target": "esnext",
-    "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      // "~/*": ["${configDir}/*"],
-      // "~/*": ["./*"],
-      "~/*": ["${configDir}/src/*"]
-    }
-  },
+  "extends": "./tsconfig.base.json",
   "exclude": ["node_modules", "${configDir}/dist"]
 }

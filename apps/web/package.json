@@ -10,7 +10,6 @@
     "tsc": "tsc --noEmit && echo \"reports type checking without emiting outputs\""
   },
   "dependencies": {
-    "@tr/shared": "workspace:*",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3"

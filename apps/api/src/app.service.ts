@@ -1,20 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { add } from '@tr/shared';
-import { next, adf as a } from '@tr/nestjs-libraries';
-
-const adf = next + '____';
+import { shared } from '@tr/shared';
 
 @Injectable()
 export class AppService {
   getHello(): string {
-    console.log(next);
-    return `Hello World!!! ${add(68, 2)} value: ${adf} ${a}`;
+    // console.log(next);
+    return `Hello World!!!! ${shared()}`;
   }
 
   getBye(): string {
-    console.log(next);
-    return `Bye lelo ${add(66, 3)}`;
+    return `Bye lelo ${shared()}`;
   }
 }
-
-export const asdf = 'jljkl;jl;jkljljlj';

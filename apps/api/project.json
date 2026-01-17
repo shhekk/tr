@@ -1,0 +1,43 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "@tr/api",
+  "projectType": "application",
+  "root": "apps/api",
+  "sourceRoot": "apps/api/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "dependsOn": ["^build"],
+      "cache": true,
+      "options": {
+        "outputPath": "dist/apps/api",
+        "tsConfig": "apps/api/tsconfig.app.json",
+        "webpackConfig": "apps/api/webpack.config.js",
+        "main": "apps/api/src/main.ts",
+        "compiler": "tsc",
+        "generatePackageJson": true,
+        "target": "node",
+        "inspect": false
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "inspect": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "@tr/api:build",
+        "watch": true,
+        "port": 9229
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "@tr/api:build:production"
+        }
+      }
+    }
+  }
+}

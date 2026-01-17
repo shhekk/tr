@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    // "rootDir": ".",
+    // "composite": true,
+    // // "sourceMap": true, // for devtools or debuggers
+    // "declaration": true, // for types
+    // "declarationMap": true, // for goto-definitions
+    // "strict": true,
+    // "target": "es2022",
+    // "lib": ["ESNext", "DOM"],
+    // "skipLibCheck": true,
+    // "skipDefaultLibCheck": true,
+    // "importHelpers": true,
+    // "emitDecoratorMetadata": true,
+    // "experimentalDecorators": true,
+    // "esModuleInterop": true,
+    // "baseUrl": ".",
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "esnext",
+    "lib": ["ESNext", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+
+    "paths": {
+      "~/*": ["${configDir}/src/*"],
+      "@tr/shared": ["libs/shared/src/index.ts"],
+      "@tr/shared/*": ["libs/shared/src/*"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "exclude": ["node_modules"]
+}
