@@ -1,4 +1,4 @@
-# nx added, dist moved to root, webpack added
+# nx added, frontend-backend-shared libs added
 
 - nx added in the project
 - rootDir is moved to tsconfig.base.json (to use dependent projects directly)
