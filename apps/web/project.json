@@ -1,8 +1,14 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "@tr/web",
   "projectType": "application",
+  "name": "@tr/web",
   "root": "apps/web",
   "sourceRoot": "apps/web/src",
-  "targets": {}
+  "targets": {
+    "serve": {
+      "options": {
+        "buildTarget": "@tr/web:build"
+      }
+    }
+  }
 }

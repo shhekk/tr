@@ -1,5 +1,5 @@
 {
-  "name": "shared",
+  "name": "@tr/shared",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/shared/src",
   "projectType": "library",

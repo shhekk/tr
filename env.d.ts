@@ -1,6 +1,8 @@
 declare namespace NodeJS {
   interface ProcessEnv {
-    global: 'goblin' | 'logbin';
+    DATABASE_URL: string;
+    NODE_ENV: string;
+    BACKEND_URL: string;
   }
 }
 // ₧

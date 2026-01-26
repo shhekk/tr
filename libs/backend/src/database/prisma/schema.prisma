@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       String  @id @default(uuid())
+  username String  @unique
+  email    String  @unique
+  password String //  hashed
+  verified Boolean @default(true) // for development until email-verification
+
+  libraries Library[]
+  books     Book[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Book {
+  id        String  @id @unique @default(uuid())
+  name      String
+  fileid    String
+  // file Media @relation(fields: [fileid], references: [id])
+  libraryid String
+  library   Library @relation(fields: [libraryid], references: [id])
+  ownerId   String
+  owner     User    @relation(fields: [ownerId], references: [id])
+}
+
+model BookMedia {
+  id     String @id @unique
+  bookId String
+  // book Media @relation(fields: [bookId] , references: [id])
+}
+
+model Media {
+  id       String @id @unique
+  mediaURL String
+}
+
+model Library {
+  id      String @id @unique @default(uuid())
+  name    String
+  books   Book[]
+  adminId String
+  admin   User   @relation(fields: [adminId], references: [id])
+}

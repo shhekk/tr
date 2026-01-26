@@ -5,6 +5,7 @@
 **/.next
 **/.env
 **/tsconfig.tsbuildinfo
+**/prisma/generated/**
 
 # compiled output
 /dist

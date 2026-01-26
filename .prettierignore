@@ -1,4 +1,11 @@
 # Add files here to ignore them from prettier formatting
+**/node_modules
+**/dist
+**/.next
+**/.env
+**/tsconfig.tsbuildinfo
+**/prisma/generated/**
+**/prisma/migrations/**
 /dist
 /coverage
 /.nx/cache

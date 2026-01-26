@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  tr-postgres:
+    image: postgres:16
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=tr-db
+    volumes:
+      - tr-postgres-db:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+volumes:
+  tr-postgres-db: {}

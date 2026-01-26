@@ -10,17 +10,22 @@
       "dependsOn": ["^build"],
       "cache": true,
       "options": {
-        "outputPath": "dist/apps/api",
-        "tsConfig": "apps/api/tsconfig.app.json",
-        "webpackConfig": "apps/api/webpack.config.js",
-        "main": "apps/api/src/main.ts",
-        "compiler": "tsc",
-        "generatePackageJson": true,
         "target": "node",
-        "inspect": false
+        "inspect": false,
+        "generatePackageJson": true,
+        "main": "apps/api/src/main.ts",
+        "webpackConfig": "apps/api/webpack.config.js",
+        "outputPath": "apps/api/dist",
+        "compiler": "swc",
+        "sourceMap": true,
+        "skipTypeChecking": true,
+        "tsConfig": "apps/api/tsconfig.app.json",
+        "why-tsconfig": "// @nx/webpack need to know what to build and what to exclude",
+        "//": "the tsconf & webpackConf does not matter *default already applied with withNx"
       },
       "configurations": {
         "production": {
+          "skipTypeChecking": false,
           "optimization": true,
           "inspect": false
         }

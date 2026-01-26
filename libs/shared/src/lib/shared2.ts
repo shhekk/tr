@@ -1,3 +1,3 @@
 export function shared(): string {
-  return 'shared4';
+  return 'shared2';
 }

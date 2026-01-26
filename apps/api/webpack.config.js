@@ -1,5 +1,6 @@
 const { withNx, composePlugins } = require('@nx/webpack');
 const { relative, resolve } = require('path');
+// const swcConfig = require('./.swcrc');
 
 module.exports = composePlugins(withNx(), (config) => {
   config.resolve.alias = {
@@ -10,6 +11,39 @@ module.exports = composePlugins(withNx(), (config) => {
     const rel = relative(process.cwd(), info.absoluteResourcePath);
     return `webpack:///./${rel}`;
   };
+
+  config.module = config.module || {};
+  config.module.rules = config.module.rules || [];
+
+  config.module.rules.pop(); // removed last default swc loader and added my own swc options
+
+  config.module.rules.push({
+    test: /\.ts$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'swc-loader',
+      options: {
+        jsc: {
+          parser: { syntax: 'typescript', decorators: true, tsx: true },
+          transform: {
+            legacyDecorator: true,
+            decoratorMetadata: true,
+            react: { runtime: 'automatic' },
+          },
+          target: 'es2017',
+
+          loose: true,
+        },
+        module: {
+          type: 'commonjs',
+        },
+      },
+    },
+  });
+
+  // confirm if swc is used by nx ↓
+  // console.dir(config.module.rules, { depth: null, colors: true });
+
   config.ignoreWarnings = [
     /(Failed to parse source map from)\s.*\/generated-prisma-client\/.*/,
   ];

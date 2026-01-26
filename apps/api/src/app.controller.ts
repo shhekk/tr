@@ -7,11 +7,6 @@ export class AppController {
 
   @Get()
   getHello() {
-    return { message: this.appService.getHello() };
-  }
-
-  @Get('/:id')
-  getbye(@Param() id: string) {
-    return { id: id ?? '', bye: this.appService.getBye() };
+    return { message: this.appService.getHello() + 'asdfasdf' };
   }
 }

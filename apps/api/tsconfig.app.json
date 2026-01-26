@@ -1,41 +1,5 @@
-// {
-//   "extends": "../../tsconfig.base.json",
-//   "compilerOptions": {
-//     "module": "commonjs",
-//     "types": ["node"],
-//     "lib": ["ESNext"]
-//     // "module": "nodenext",
-//     // "moduleResolution": "nodenext",
-//     // "lib": ["ESNext"],
-//     // "resolvePackageJsonExports": true,
-//     // "isolatedModules": true,
-//     // "removeComments": true,
-//     // "allowSyntheticDefaultImports": true,
-//     // "outDir": "./dist",
-//     // "incremental": true,
-//     // "strictNullChecks": true,
-//     // "forceConsistentCasingInFileNames": true,
-//     // "noImplicitAny": false,
-//     // "strictBindCallApply": false,
-//     // "noFallthroughCasesInSwitch": false
-//   },
-//   "include": ["**/*.ts"],
-//   "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
-// }
-
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
-    "module": "commonjs",
-    "types": ["node"],
-    "emitDecoratorMetadata": true
-  },
-  "exclude": [
-    "jest.e2e.config.ts",
-    "**/*.spec.ts",
-    "**/*.test.ts",
-    "migration-scripts"
-  ],
-  "include": ["src/**/*.ts"]
+  "exclude": ["**/*.spec.ts", "**/*.test.ts", "eslint.config.mjs"],
+  "include": ["src/**/*.ts", "../../env.d.ts"]
 }

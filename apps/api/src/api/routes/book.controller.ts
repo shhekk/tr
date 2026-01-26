@@ -6,7 +6,6 @@ import {
   Get,
   Param,
   Post,
-  Query,
 } from '@nestjs/common';
 
 type userDto = { email: string; password: string };
@@ -16,10 +15,9 @@ export class BookController {
   constructor() {}
 
   @Get('/:id')
-  async getBookDetails(@Param('id') id: string) {
+  async getBookDetails(@Param('id') bookId: string) {
     // const { id } = param;
-    console.log(id);
-    return { redirectURL: `https://localhost:4001/book/${id}` };
+    return { bookId };
   }
 
   @Post()

@@ -4,16 +4,32 @@ import {
   Controller,
   Delete,
   Get,
+  InternalServerErrorException,
   Param,
   Post,
   Query,
 } from '@nestjs/common';
+import { UserService } from '@tr/db/user.service';
 
 type userDto = { email: string; password: string };
 
-@Controller('User')
+@Controller('user')
 export class UserController {
-  constructor() {}
+  constructor(private userService: UserService) {}
+
+  @Get('/')
+  async getAllUsers(res: Response) {
+    try {
+      const users = await this.userService.getAllUsers();
+      return users.map((u) => {
+        const { password, ...user } = u;
+        return user;
+      });
+    } catch (e) {
+      // console.error(e);
+      throw e;
+    }
+  }
 
   @Get('/:id')
   async getUserDetails(@Param() id: string) {
@@ -40,7 +56,4 @@ export class UserController {
 
   @Post('/remove-user')
   async removeUser() {}
-
-  @Post('/user-role')
-  async userRole() {}
 }

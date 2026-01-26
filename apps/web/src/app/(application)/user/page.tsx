@@ -1,3 +1,3 @@
-export default function (){
-	return <>A Page.</>
+export default function () {
+  return <>User Page.</>;
 }

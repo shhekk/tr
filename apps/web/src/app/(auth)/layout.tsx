@@ -6,6 +6,7 @@ export default function ({ children }: { children: ReactNode }) {
       <div className="w-full h-full absolute bg-amber-400 -z-10">
         <div className="boxxed top-0 bottom-0 w-xl h-58 bg-[green] ">
           "asdf"
+          {children}
         </div>
       </div>
     </div>
