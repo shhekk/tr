@@ -14,6 +14,6 @@
 # later todo
 
 - add notification service
-  nx g @nx/nestjs:application apps/notification
+  nx g @nx/nest:application apps/notification
   - make a nestjs async microservice. (use redis (if not then bullmq) as internal communication)
   - features: email, inapp, sms

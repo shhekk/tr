@@ -1,0 +1,3 @@
+export const MICROSERVICES = {
+  NOTIFICATION: 'NOTIFICATION_SERVICE',
+} as const;

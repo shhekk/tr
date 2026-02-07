@@ -3,6 +3,7 @@ import {
   Body,
   Controller,
   Get,
+  Inject,
   NotFoundException,
   Post,
   Req,
@@ -29,12 +30,15 @@ import {
 import * as AUTHPOLICY from '@tr/constant/Policy/auth';
 import { GetUser } from '@tr/backend/helpers/decorators';
 import { User } from '@tr/backend/database';
+import { MICROSERVICES } from '@tr/backend/constants/microservice';
+import { ClientProxy } from '@nestjs/microservices';
 
 @Controller('auth')
 export class AuthController {
   constructor(
     private auth: AuthService,
     private user: UserService,
+    @Inject(MICROSERVICES.NOTIFICATION) private notifyClient: ClientProxy,
     // private notification: NotificationService
   ) {}
 
@@ -45,7 +49,16 @@ export class AuthController {
     const { otp } = await this.auth.generateOtp(email);
 
     // this.mail.sendEmail(email, `Your OTP: ${otp}`)
-    console.log(`Your OTP: ${otp}`);
+    // console.log(`Your OTP: ${otp}`);
+    this.notifyClient.emit('send_email', {
+      to: 'to@mailhost.in',
+      subject: 'checking email',
+      html: `<h1>Your OTP is: ${otp}</h1>`,
+      emailFrom: {
+        address: 'tr.app',
+        name: 'tr-admin',
+      },
+    });
 
     return {
       message: 'otp sent on email, please verify opt.',

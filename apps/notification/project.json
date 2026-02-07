@@ -1,0 +1,91 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "@tr/notification",
+  "projectType": "application",
+  "root": "apps/notification",
+  "sourceRoot": "apps/notification/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "dependsOn": ["^build"],
+      "cache": true,
+      "options": {
+        "target": "node",
+        "inspect": false,
+        "generatePackageJson": true,
+        "main": "apps/notification/src/main.ts",
+        "webpackConfig": "apps/notification/webpack.config.js",
+        "outputPath": "apps/notification/dist",
+        "compiler": "swc",
+        "sourceMap": true,
+        "skipTypeChecking": true,
+        "tsConfig": "apps/notification/tsconfig.app.json"
+      },
+      "configurations": {
+        "production": {
+          "skipTypeChecking": false,
+          "optimization": true,
+          "inspect": false
+        }
+      }
+    },
+    "//build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "webpack-cli build",
+        "args": ["--node-env=production"],
+        "cwd": "apps/notification"
+      },
+      "configurations": {
+        "development": {
+          "args": ["--node-env=development"]
+        }
+      }
+    },
+    "prune-lockfile": {
+      "dependsOn": ["build"],
+      "cache": true,
+      "executor": "@nx/js:prune-lockfile",
+      "outputs": [
+        "{workspaceRoot}/dist/apps/notification/package.json",
+        "{workspaceRoot}/dist/apps/notification/pnpm-lock.yaml"
+      ],
+      "options": {
+        "buildTarget": "build"
+      }
+    },
+    "copy-workspace-modules": {
+      "dependsOn": ["build"],
+      "cache": true,
+      "outputs": ["{workspaceRoot}/dist/apps/notification/workspace_modules"],
+      "executor": "@nx/js:copy-workspace-modules",
+      "options": {
+        "buildTarget": "build"
+      }
+    },
+    "prune": {
+      "dependsOn": ["prune-lockfile", "copy-workspace-modules"],
+      "executor": "nx:noop"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "@tr/notification:build",
+        "watch": true,
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "@tr/notification:build:development"
+        },
+        "production": {
+          "buildTarget": "@tr/notification:build:production"
+        }
+      }
+    }
+  }
+}

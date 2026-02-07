@@ -4,18 +4,33 @@ import {
   Controller,
   Delete,
   Get,
+  Inject,
   InternalServerErrorException,
   Param,
   Post,
   Query,
 } from '@nestjs/common';
+import { ClientProxy } from '@nestjs/microservices';
+import { MICROSERVICES } from '@tr/backend/constants/microservice';
 import { UserService } from '@tr/db/user.service';
 
 type userDto = { email: string; password: string };
+interface sendmail {
+  to: string;
+  subject: string;
+  html: string;
+  emailFrom: {
+    name: string;
+    address: string;
+  };
+}
 
 @Controller('user')
 export class UserController {
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    @Inject(MICROSERVICES.NOTIFICATION) private notify: ClientProxy,
+  ) {}
 
   @Get('/')
   async getAllUsers(res: Response) {
@@ -29,6 +44,19 @@ export class UserController {
       console.error(e);
       return false;
     }
+  }
+
+  @Get('mail')
+  async sendmail() {
+    await this.notify.emit('send_email', {
+      to: 'to@mailhost.in',
+      subject: 'checking email',
+      html: '<h1>Hello check mail</h1>',
+      emailFrom: {
+        address: 'tr.app',
+        name: 'tr-admin',
+      },
+    } as sendmail);
   }
 
   @Get('/isavailable/:username')

@@ -8,6 +8,8 @@ export {}; //forces the file to be treated as a module instead of a global scrip
  *
  * or add manually */
 const envs = [
+  'API_PORT',
+  'NOTIFICATION_PORT',
   'DATABASE_URL',
   'BACKEND_URL',
   'REDIS_URL',
@@ -30,6 +32,7 @@ declare global {
     interface ProcessEnv extends Record<Envs, string> {
       NODE_ENV: 'development' | 'production' | 'testing';
       STORAGE_PROVIDER: 'local' | 'cloudinary';
+      EMAIL_PROVIDER: 'nodemailer' | 'none';
     }
   }
 }

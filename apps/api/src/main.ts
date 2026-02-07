@@ -13,7 +13,7 @@ console.log(process.env.DATABASE_URL);
   app.useGlobalPipes(new ValidationPipe({ transform: true })); // for class-transformer
   LoadSwagger(app);
 
-  const PORT = process.env.PORT ?? 4001;
+  const PORT = process.env.API_PORT ?? 4001;
   await app.listen(PORT, () => {
     console.log(
       `Api Running on: \x1b[1;35mhttp://localhost:${PORT}/api/\x1b[0m`,
