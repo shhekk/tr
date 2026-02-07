@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 // import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import { VariableContextProvider } from '@tr/frontend/contexts/variable.context';
+import { AuthProvider } from '@tr/frontend/contexts/auth.context';
 // import { asdf } from '~/src/app/page';
 
 // const geistSans = Geist({
@@ -28,7 +30,13 @@ export default function RootLayout({
       <body
       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <VariableContextProvider
+          variables={{
+            BACKEND_URL: process.env.BACKEND_URL,
+          }}
+        >
+          <AuthProvider>{children}</AuthProvider>
+        </VariableContextProvider>
       </body>
     </html>
   );

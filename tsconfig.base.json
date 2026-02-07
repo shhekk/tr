@@ -15,20 +15,19 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["${configDir}/src/*"],
+      // "~/*": ["${configDir}/src/*"],
       "@tr/shared": ["libs/shared/src/index.ts"],
       "@tr/shared/*": ["libs/shared/src/*"],
       "@tr/backend": ["libs/backend/src/index.ts"],
       "@tr/backend/*": ["libs/backend/src/*"],
-      "@tr/dtos": ["libs/shared/src/dtos/index.ts"],
-      "@tr/dtos/*": ["libs/shared/src/dtos/*"],
-      "@tr/db/*": ["libs/backend/src/database/prisma/services/*"],
       "@tr/frontend": ["libs/frontend/src/index.ts"],
       "@tr/frontend/*": ["libs/frontend/src/*"],
+      "@tr/db/*": ["libs/backend/src/database/prisma/services/*"],
+      "@tr/db": ["libs/backend/src/database/index.ts"],
       "@tr/ui": ["libs/frontend/src/components/index.tsx"],
       "@tr/ui/*": ["libs/frontend/src/components/*"],
-      "frontend": ["libs/frontend/src/index.ts"],
-      "frontend/server": ["libs/frontend/src/server.ts"]
+      "@tr/types/*": ["libs/shared/src/types/*"],
+      "@tr/constant/*": ["libs/shared/src/constants/*"]
     }
   },
   "ts-node": {

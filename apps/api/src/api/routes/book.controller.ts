@@ -7,6 +7,7 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
+import { GetUser } from '@tr/backend/helpers/decorators/getUser';
 
 type userDto = { email: string; password: string };
 
@@ -15,8 +16,9 @@ export class BookController {
   constructor() {}
 
   @Get('/:id')
-  async getBookDetails(@Param('id') bookId: string) {
+  async getBookDetails(@Param('id') bookId: string, @GetUser() user: any) {
     // const { id } = param;
+    // console.log({ user });
     return { bookId };
   }
 

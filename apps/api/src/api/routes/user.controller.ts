@@ -26,9 +26,14 @@ export class UserController {
         return user;
       });
     } catch (e) {
-      // console.error(e);
-      throw e;
+      console.error(e);
+      return false;
     }
+  }
+
+  @Get('/isavailable/:username')
+  async checkUsernameAvailability(@Param('username') username: string) {
+    return !(await this.userService.isUsernameTaken(username));
   }
 
   @Get('/:id')

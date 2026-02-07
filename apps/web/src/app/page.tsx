@@ -3,21 +3,23 @@ import { shared } from '@tr/shared';
 import { Frontend } from '@tr/frontend';
 import { HelloServer } from '@tr/frontend/lib/hello-server';
 import { Header } from '@tr/ui/header/header';
+import { Timer } from '@tr/ui/timer';
 
 export const asdf = 'asdfasfd';
 
 export default async function Home() {
-  const res = await fetch('http://localhost:4001/book/029348', {
-    cache: 'no-store', // “Do NOT prerender this at build time.”
-  });
-  const body = await res.json();
-  let message = JSON.stringify(body ?? 'not-found');
-  // let message = 'message';
+  // const res = await fetch('http://localhost:4001/book/0248', {
+  //   cache: 'no-store', // “Do NOT prerender this at build time.”
+  // });
+  // const body = await res.json();
+  // let message = JSON.stringify(body ?? 'not-found');
+  let message = 'message';
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Header />
+        <Timer till={Date.now() + 10000} />
         <Image
           className="dark:invert"
           src="/next.svg"
